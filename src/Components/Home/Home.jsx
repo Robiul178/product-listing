@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../Card/Card";
+import Category from "../Category/Category";
 
 const Home = () => {
     const [products, setProducts] = useState();
@@ -38,6 +39,10 @@ const Home = () => {
                     onChange={handleSearchInputChange}
                     className='p-3 border border-black rounded-lg'
                 />
+            </div>
+
+            <div>
+                <Category />
             </div>
 
 
