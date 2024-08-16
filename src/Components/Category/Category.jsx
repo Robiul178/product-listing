@@ -19,7 +19,7 @@ function Category() {
 
     }, []);
 
-    console.table(products);
+    // console.table(products);
 
 
     const [brand, setBrand] = useState('');
@@ -27,22 +27,24 @@ function Category() {
     const [priceRange, setPriceRange] = useState('');
     const [filteredProducts, setFilteredProducts] = useState(products);
 
+    console.table(filteredProducts);
+
+
     useEffect(() => {
         let result = products;
 
         if (brand) {
-            result = result.filter(product => product.brand === brand);
+            result = result?.filter(product => product.brand === brand);
         }
 
         if (category) {
-            result = result.filter(product => product.category === category);
+            result = result?.filter(product => product.category === category);
         }
 
         if (priceRange) {
             const [min, max] = priceRange.split('-').map(Number);
-            result = result.filter(product => product.price >= min && product.price <= max);
+            result = result?.filter(product => product.price >= min && product.price <= max);
         }
-
         setFilteredProducts(result);
     }, [products]);
 
@@ -67,9 +69,10 @@ function Category() {
                     Category:
                     <select value={category} onChange={e => setCategory(e.target.value)}>
                         <option value="">All</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Wearables">Wearables</option>
+                        <option value="men's clothing">men's clothing</option>
+                        <option value="women's clothing">women's clothing</option>
+                        <option value="electronics">electronics</option>
+                        <option value="jewelery">jewelery</option>
                     </select>
                 </label>
 
@@ -77,9 +80,9 @@ function Category() {
                     Price Range:
                     <select value={priceRange} onChange={e => setPriceRange(e.target.value)}>
                         <option value="">All</option>
-                        <option value="0-500">0 - 500</option>
-                        <option value="501-1000">501 - 1000</option>
-                        <option value="1001-2000">1001 - 2000</option>
+                        <option value="0-100">0 - 100</option>
+                        <option value="101-300">101 - 300</option>
+                        <option value="301-2000">301 - 2000</option>
                     </select>
                 </label>
             </div>
