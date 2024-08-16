@@ -34,21 +34,26 @@ const Home = () => {
         let result = products;
 
         if (brand) {
-            result = result.filter(product => product.brand === brand);
+            result = [...result].filter(product => product.brand === brand);
         }
 
         if (category) {
-            result = result.filter(product => product.category === category);
+            result = [...result].filter(product => product.category === category);
         }
 
         if (priceRange) {
             const [min, max] = priceRange.split('-').map(Number);
-            result = result.filter(product => product.price >= min && product.price <= max);
+            result = [...result].filter(product => product.price >= min && product.price <= max);
         }
-        // setFilteredProducts(result);
-        setProducts([...result, result])
-        // setProducts(result)
+        setFilteredProducts(result);
     }, [products])
+
+
+    const handle = () => {
+        console.table(filteredProducts);
+        let p = [...filteredProducts];
+        setProducts(p);
+    }
 
 
     return (
@@ -105,6 +110,9 @@ const Home = () => {
                                 <option value="301-2000">301 - 2000</option>
                             </select>
                         </label>
+                    </div>
+                    <div>
+                        <button onClick={handle} type="button">Okkk</button>
                     </div>
                 </div>
             </div>
