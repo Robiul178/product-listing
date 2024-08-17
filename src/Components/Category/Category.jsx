@@ -19,7 +19,6 @@ function Category() {
 
     }, []);
 
-    // console.table(products);
 
 
     const [brand, setBrand] = useState('');
