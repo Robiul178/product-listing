@@ -95,7 +95,7 @@ const Home = () => {
         <section className="m-6 border">
 
             <main className="flex flex-row">
-                <div className="basis-1/4 p-4 border">
+                <div className="basis-1/4 p-4 border w-72 sticky top-0 h-screen">
                     <div>
                         <div>
                             <h2 className="text-xl font-semibold">Search product :</h2>
