@@ -92,15 +92,14 @@ const Home = () => {
 
 
     return (
-        <section className="m-24 border">
-            <div>
-                <h2 className="text-xl font-serif">Product</h2>
-            </div>
+        <section className="m-6 border">
 
-            <main >
-
-                <div className="flex">
+            <main className="flex flex-row">
+                <div className="basis-1/4 p-4 border">
                     <div>
+                        <div>
+                            <h2 className="text-xl font-semibold">Search product :</h2>
+                        </div>
                         <div>
                             <input
                                 type="text"
@@ -111,45 +110,44 @@ const Home = () => {
                             />
                         </div>
                     </div>
-                    <div className="mt-2 ms-2">
-                        <label className="border p-2 mr-2">
-                            Brand:
-                            <select value={brand} onChange={e => setBrand(e.target.value)}>
-                                <option value="">All</option>
-                                <option value="Dorjibari">Dorjibari</option>
-                                <option value="Mens World">Mens World</option>
-                                <option value="Gold & Silver">Gold & Silver</option>
-                                <option value="Tech Studio">Tech Studio</option>
-                                <option value="Tech World">Tech World</option>
-                                <option value="Easy">Easy</option>
-                                <option value="Art">Art</option>
-                            </select>
-                        </label>
+                    <div className="py-4">
+                        <div className="p-2 border inline-block">
+                            <label >
+                                <span className="text-xl font-semibold"> Brand:</span>
+                                <select value={brand} onChange={e => setBrand(e.target.value)} className="p-2 border">
+                                    <option value="">All</option>
+                                    <option value="Dorjibari">Dorjibari</option>
+                                    <option value="Mens World">Mens World</option>
+                                    <option value="Gold & Silver">Gold & Silver</option>
+                                    <option value="Tech Studio">Tech Studio</option>
+                                    <option value="Tech World">Tech World</option>
+                                    <option value="Easy">Easy</option>
+                                    <option value="Art">Art</option>
+                                </select>
+                            </label><br />
 
-                        <label className="p-2 border mr-2">
-                            Category:
-                            <select value={category} onChange={e => setCategory(e.target.value)}>
-                                <option value="">All</option>
-                                <option value="men's clothing">men's clothing</option>
-                                <option value="women's clothing">women's clothing</option>
-                                <option value="electronics">electronics</option>
-                                <option value="jewelery">jewelery</option>
-                            </select>
-                        </label>
+                            <label >
+                                <span className="text-xl font-semibold"> Category:</span>
+                                <select value={category} onChange={e => setCategory(e.target.value)} className="p-2 border">
+                                    <option value="">All</option>
+                                    <option value="men's clothing">men's clothing</option>
+                                    <option value="women's clothing">women's clothing</option>
+                                    <option value="electronics">electronics</option>
+                                    <option value="jewelery">jewelery</option>
+                                </select>
+                            </label><br />
 
-                        <label className="p-2 border mr-2">
-                            Price Range:
-                            <select value={priceRange} onChange={e => setPriceRange(e.target.value)}>
-                                <option value="">All</option>
-                                <option value="0-100">0 - 100</option>
-                                <option value="101-300">101 - 300</option>
-                                <option value="301-2000">301 - 2000</option>
-                            </select>
-                        </label>
-
-                        <label className="p-2 border">
-                            <button className="btn-outline" onClick={handle}>All OK</button>
-                        </label>
+                            <label className=" mr-2">
+                                <span className="text-xl font-semibold"> Price Range:</span>
+                                <select value={priceRange} onChange={e => setPriceRange(e.target.value)} className="p-2 border">
+                                    <option value="">All</option>
+                                    <option value="0-100">0 - 100</option>
+                                    <option value="101-300">101 - 300</option>
+                                    <option value="301-2000">301 - 2000</option>
+                                </select>
+                            </label>
+                            <button className="btn p-2 border" onClick={handle}>Get Filtered Product</button>
+                        </div>
 
                     </div>
                     <div className=''>
@@ -164,13 +162,16 @@ const Home = () => {
                         >Sort by High To Low</button>
                     </div>
                 </div>
+
+                <div className="basis-3/4">
+                    <div className="grid grid-cols-3 gap-6 p-10">
+                        {
+                            products?.map(p => <Card key={p.id} p={p} />)
+                        }
+                    </div>
+                </div>
             </main>
 
-            <div className="grid grid-cols-4 gap-6 p-10">
-                {
-                    products?.map(p => <Card key={p.id} p={p} />)
-                }
-            </div>
         </section>
     );
 };
