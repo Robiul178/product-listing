@@ -1,13 +1,13 @@
 
-import Category from './Components/Category/Category'
 import Home from './Components/Home/Home'
+import Nav from './Components/Nav/Nav'
 
 function App() {
 
   return (
     <>
+      <Nav />
       <Home />
-      {/* <Category /> */}
     </>
   )
 }
