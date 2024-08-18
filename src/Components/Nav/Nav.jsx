@@ -11,7 +11,7 @@ const Nav = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li><a href="">Home</a></li>
-                            <li><a href="">Login</a></li>
+                            <li><a href="/login">Login</a></li>
                             <li><a href="">Singin</a></li>
                         </ul>
                     </div>
@@ -22,7 +22,7 @@ const Nav = () => {
                 <div className="navbar-end hidden lg:flex">
                     <ul className="flex gap-3 font-semibold">
                         <li><a href="">Home</a></li>
-                        <li><a href="">Login</a></li>
+                        <li><a href="/login">Login</a></li>
                         <li><a href="">Singin</a></li>
                     </ul>
                 </div>
